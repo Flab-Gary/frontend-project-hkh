@@ -6,6 +6,7 @@ import playwright from 'eslint-plugin-playwright';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import tailwind from 'eslint-plugin-tailwindcss';
 import testingLibrary from 'eslint-plugin-testing-library';
+import prettierPlugin from 'eslint-plugin-prettier';
 
 export default antfu({
   react: true,
@@ -28,9 +29,11 @@ export default antfu({
   ],
 }, ...tailwind.configs['flat/recommended'], jsxA11y.flatConfigs.recommended, {
   plugins: {
-    '@next/next': nextPlugin,
+    '@next/next': nextPlugin,   
+    'prettier': prettierPlugin,
   },
   rules: {
+    'prettier/prettier': 'error',
     ...nextPlugin.configs.recommended.rules,
     ...nextPlugin.configs['core-web-vitals'].rules,
   },

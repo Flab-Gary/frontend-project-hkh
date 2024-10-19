@@ -2,7 +2,7 @@ import { QueryClient } from '@tanstack/react-query'
 
 import type { IAxiosGroup } from './axios'
 import AxiosGroup from '@/setup/axiosSetup'
-import type { IAPIs } from '@/api'
+import type { IAPIFactory } from '@/api'
 import APIs from './apiSetup'
 import type { IRepositories } from '@/repositories'
 import Repositories from './repositories'
@@ -13,7 +13,7 @@ export interface IAppSettings {
   readonly axiosGroup: IAxiosGroup
   readonly queryClient: QueryClient
   readonly repositories: IRepositories
-  APIs: IAPIs
+  APIs: IAPIFactory
   services: IServices
 }
 
@@ -21,7 +21,7 @@ class AppSettings implements IAppSettings {
   readonly axiosGroup: IAxiosGroup
   readonly queryClient: QueryClient
   readonly repositories: IRepositories
-  private _APIs: IAPIs
+  private _APIs: IAPIFactory
   private _services: IServices
 
   get APIs() {

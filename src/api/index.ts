@@ -2,7 +2,7 @@ import appSettings from '@/setup'
 import type { ISummonerAPI } from './summoner'
 
 
-export interface IAPIs {
+export interface IAPIFactory {
   summoner: ISummonerAPI
   
 }

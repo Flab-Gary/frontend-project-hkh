@@ -1,10 +1,10 @@
-import type { IAPIs } from '@/api'
+import { IAPIFactory } from './../api/index';
 import type { IAxiosGroup } from './axios'
 import type { ISummonerAPI } from '@/api/summoner'
 import SummonerAPI from '@/api/summoner'
 
 
-export default class APIs implements IAPIs {
+export default class APIFactory implements IAPIFactory {
   summoner: ISummonerAPI
   
   constructor(

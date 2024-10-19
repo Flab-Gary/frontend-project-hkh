@@ -1,7 +1,4 @@
-import { useTranslations } from 'next-intl';
-import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
-
-import { Sponsors } from '@/components/Sponsors';
+import { getTranslations } from 'next-intl/server';
 
 export async function generateMetadata(props: { params: { locale: string } }) {
   const t = await getTranslations({
@@ -10,24 +7,21 @@ export async function generateMetadata(props: { params: { locale: string } }) {
   });
 
   return {
-    title: t('meta_title'),
-    description: t('meta_description'),
+    title: ('meta_title'),
+    description: ('meta_description'),
   };
 }
 
-export default function Index(props: { params: { locale: string } }) {
-  unstable_setRequestLocale(props.params.locale);
-  const t = useTranslations('Index');
-
+export default function Index() {
   return (
     <>
-      <p>
+      <p className='mt-60'>
         {`Looking for a SaaS Boilerplate? `}
         <a
           className="text-blue-700 hover:border-b-2 hover:border-blue-700"
           href="https://nextjs-boilerplate.com/pro-saas-starter-kit"
         >
-          Next.js Boilerplate SaaS
+          THISISTEST
         </a>
         {` can help you build one.`}
       </p>
@@ -48,8 +42,7 @@ export default function Index(props: { params: { locale: string } }) {
         Their services integrate seamlessly with the boilerplate, and we
         recommend trying them out.
       </p>
-      <h2 className="mt-5 text-2xl font-bold">{t('sponsors_title')}</h2>
-      <Sponsors />
+      <h2 className="mt-5 text-2xl font-bold">{('sponsors_title')}</h2>
       <h2 className="mt-5 text-2xl font-bold">
         Boilerplate Code for Your Next.js Project with Tailwind CSS
       </h2>

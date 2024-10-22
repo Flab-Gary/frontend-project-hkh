@@ -1,27 +1,29 @@
 import type { Metadata } from 'next';
 import ClientProviders from '@/hoc/ClientProvider';
+import { Provider } from 'react-wrap-balancer';
+import '@/styles/global.css';
 
 export const metadata: Metadata = {
   icons: [
     {
       rel: 'apple-touch-icon',
-      url: '/apple-touch-icon.png',
+      url: '/Fizz.png',
     },
     {
       rel: 'icon',
       type: 'image/png',
       sizes: '32x32',
-      url: '/favicon-32x32.png',
+      url: '/Fizz.png',
     },
     {
       rel: 'icon',
       type: 'image/png',
       sizes: '16x16',
-      url: '/favicon-16x16.png',
+      url: '/Fizz.png',
     },
     {
       rel: 'icon',
-      url: '/favicon.ico',
+      url: '/Fizz.ico',
     },
   ],
 };
@@ -31,12 +33,13 @@ export default async function RootLayout({ children, }: {
 }) {
 
   return (
-    <html lang={'ko'}>
+    <html>
       <body>
-
-        <ClientProviders >
-          {children}
-        </ClientProviders>
+        <Provider>
+          <ClientProviders >
+            {children}
+          </ClientProviders>
+        </Provider>
       </body>
     </html >
   );
